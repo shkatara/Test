@@ -1,4 +1,4 @@
-#!/usr/bin/python           # This is client.py file
+#!/usr/bin/python           
 
 import socket               # Import socket module
 
@@ -11,13 +11,9 @@ user=raw_input("shubham login: ")
 s.sendto(user,("127.0.0.1",12346))
 passwd=raw_input("Password: ")
 s.sendto(passwd,("127.0.0.1",12346))
-auth=s.recvfrom(1000)
-print auth[0]
-dirauth=s.recvfrom(1000)
-print dirauth[0]
  
 while True:
-        cmd=raw_input("[{}@station169 ~]$ ".format(user))
+        cmd=raw_input("[{}@localhost ~]$ ".format(user))
 	s.sendto(cmd,("127.0.0.1",12346))
 	result=s.recvfrom(10000)[0]
 	print result
